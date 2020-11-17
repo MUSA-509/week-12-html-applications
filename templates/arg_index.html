@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>HTML Form Query String Viewer</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+</head>
+
+<body>
+
+  <div class="section hero" style="margin-top: 40px">
+    <div class="container">
+      <div class="row">
+        <h1>Form Argument Viewer</h1>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="eight columns">
+          <form action="{{ url_for('argviewer') }}" method="get">
+            <div>
+              <label for="your-name">What is your name?</label>
+              <input type="text" class="u-full-width" name="your-name" id="your-name">
+              <input type="checkbox" name="really-important-check-box">
+              <span class="label-body">Color results red?</span>
+              <hr>
+              <div class="row">
+                  <div class="six columns">
+                      <label for="">How much do you like PostGIS?</label>
+                      <span class="label-body">0</span>
+                      <input type="range" name="" id="postgis-rating" value="5" min="0" max="10">
+                      <span class="label-body">10</span>
+                  </div>
+                  <div class="six columns">
+                      <label for="programming">What's your favorite language used in class?</label>
+                      <select name="programming" id="programming">
+                        <option value="Python">Python</option>
+                        <option value="SQL">SQL</option>
+                        <option value="HTML">HTML</option>
+                      </select>
+                  </div>
+              </div>
+			  <label>Do you like building APIs?</label>
+			  <br>
+			  <input type="radio" name="apis" id="yes" value="yes">
+			  <span class="label-body">Yes</span>
+			  <input type="radio" name="apis" id="no" value="yes">
+			  <span class="label-body">No</span>
+			  <input type="radio" name="apis" id="no" value="yes">
+			  <span class="label-body">It's complicated...</span>
+            </div>
+            <hr>
+            <div class="row">
+                <textarea name="essay" class="u-full-width" style="color: #999;">What skills do you still feel are lacking?</textarea>
+            </div>
+            <input type="submit" value="Submit" class="button-primary">
+          </form>
+        </div>
+
+        <div class="four columns">
+            <p>This is a demo of how to build a form with several elements. The Submit button is hookedup to an endpoint that will print the literal key/value pairs for the form item name and it's user-supplied value.<p>
+            <p>Some use cases:
+            <ul>
+                <li>Take user input and insert into a table</li>
+                <li>Check input data against known answers in a database or from another source</li>
+            </ul>
+            </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>
