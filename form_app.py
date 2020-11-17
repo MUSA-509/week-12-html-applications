@@ -12,11 +12,12 @@ app = Flask(__name__, template_folder="templates")
 @app.route("/")
 def index():
     """Index page"""
-    return render_template("arg_index.html")
+    return Response(render_template("arg_index.html"), 200, mimetype="text/html")
 
 
-@app.route("/argviewer")
+@app.route("/argviewer", methods=["GET"])
 def argviewer():
+    """Display Form arguments"""
     args = dict(request.args)
     if request.args.get("really-important-check-box") is not None:
         color = "#990000"

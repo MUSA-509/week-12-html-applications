@@ -15,14 +15,8 @@
         zoom: 15
     });
     map.addControl(new mapboxgl.NavigationControl());
-    // Get map bounds
-    var coordinates = geojson.features[0].geometry.coordinates;
-    // var bounds = coordinates.reduce(function (bounds, coord) {
-    //         return bounds.extend(coord);
-    //     }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
-    bounds = {{ bounds|safe }};
      
-    map.fitBounds(bounds, {
+    map.fitBounds({{ bounds | safe }}, {
             padding: 150
         });
     map.on('load', function () {

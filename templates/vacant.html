@@ -77,7 +77,7 @@
           </div>
         </div>
     </section>
-    <section>
+    <section style="margin-top: 15px;">
         <div class="container">
             <div class="row">
                 {{ plot_html | safe }}
@@ -87,7 +87,12 @@
     <section class="section section-c">
         <div class="container">
             <div class="row">
-                <a class="button button-primary" href="/">Select another neighborhood</a>
+                <div class="five columns">
+                    <a class="button button-primary" href="/">Select another neighborhood</a>
+                </div>
+                <div class="seven columns">
+                    <a class="button" href="{{ url_for('vacant_download', neighborhood=nname) }}">Download data</a>
+                </div>
             </div>
         </div>
     </section>

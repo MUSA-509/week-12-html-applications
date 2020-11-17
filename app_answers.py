@@ -77,11 +77,13 @@ def get_neighborhood_names():
     return names
 
 
+# index page
 @app.route("/")
 def index():
-    """Landing page"""
+    """Index page"""
     names = get_neighborhood_names()
-    return render_template("input.html", nnames=names)
+    rand_name = random.choice(names)
+    return render_template("input.html", nnames=names, rand_name=rand_name)
 
 
 def get_bounds(geodataframe):
