@@ -30,6 +30,10 @@ We will be building to API endpoints:
 
 ## 0. Let's look at things
 
+* lab_app.py — endpoints, variables available, etc.
+* HTML files — structure of page, variables expected
+
+
 ## 1. Hooking up the HTML form to the API
 
 The [`templates/lab_input.html`](templates/lab_input.html) file has a basic text entry form and a submit button.
