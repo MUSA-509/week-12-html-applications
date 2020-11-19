@@ -76,12 +76,15 @@ def get_neighborhood_names():
     names = [row["neighborhood_name"] for row in resp]
     return names
 
+import random
 
 @app.route("/")
 def index():
     """Landing page"""
     names = get_neighborhood_names()
-    return render_template("input.html", nnames=names)
+    random_name = random.choice(names)
+    logging.warning("Random name: %s", random_name)
+    return render_template("input.html", nnames=names, rname=random_name)
 
 
 def get_bounds(geodataframe):
@@ -150,17 +153,14 @@ def vacant_viewer():
         nname=name,
         map_html=map_html,
         buildings=buildings[["address", "building_description", "opa_id"]].values,
-        plot_html=make_building_chart(name),
     )
 
-
-@app.route("/vacantviewer_download", methods=["GET"])
-def vacant_download():
-    """Download GeoJSON of data snapshot"""
+@app.route("/vacantdownloader", methods=["GET"])
+def vacant_downloader():
+    """Test for form"""
     name = request.args["neighborhood"]
     buildings = get_neighborhood_buildings(name)
-    return Response(buildings.to_json(), 200, mimetype="application/json")
-
+    return Response(buildings.to_json(), 200, mimetype='application/json')
 
 # 404 page example
 @app.errorhandler(404)
@@ -169,28 +169,6 @@ def page_not_found(err):
     return f"404 ({err})"
 
 
-def make_building_chart(neighborhood_name):
-    """Make a bar chart of number of buildings by description"""
-    building_counts = get_building_desc_counts(neighborhood_name)
-
-    plot = figure(
-        x_range=building_counts["bldg_desc"],
-        plot_height=250,
-        title="Building Description Counts",
-        toolbar_location=None,
-        tools="",
-        tooltips=[("Building Description", "@x"), ("Count", "@top")],
-    )
-
-    logging.warning(str(building_counts))
-    plot.vbar(x=building_counts["bldg_desc"], top=building_counts["count"], width=0.9)
-
-    plot.xgrid.grid_line_color = None
-    plot.y_range.start = 0
-
-    script, div = components(plot)
-    kwargs = {"script": script, "div": div, "js_files": bokeh_js.js_files}
-    return render_template("html_plot.html", **kwargs)
 
 
 def get_building_desc_counts(neighborhood_name):

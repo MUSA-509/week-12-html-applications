@@ -6,7 +6,17 @@
 * [form_app.py](form_app.py)
 * [app.py](app.py)
 
-## Outline
+## Lab
+
+* [Writeup](Lab.md)
+* Flask App
+  * [`lab_app.py`](lab_app.py)
+  * Template Files:
+    * [`templates/lab_input.html`](templates/lab_input.html)
+    * [`templates/whereami.html`](templates/whereami.html)
+    * [`templates/point_map.html`](templates/point_map.html)
+
+## Lecture Outline
 
 1. How're project proposals doing?
    * Any project pieces that you need help with?
