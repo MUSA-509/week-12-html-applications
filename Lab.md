@@ -82,6 +82,7 @@ Let's provide some pre-canned addresses by making a drop down selector.
 
 ```HTML
 <select name="address-dropdown" id="pre-selected-addresses">
+  <option disabled selected value> -- select an option -- </option>
   <option value="Meyerson Hall, University of Pennsylvania">Meyerson Hall, University of Pennsylvania</option>
   <option value="Temple of Heaven, Beijing, China">Temple of Heaven, Beijing, China</option>
 </select>
