@@ -6,7 +6,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Where Am I?</title>
+  <title>HTML Form Query String Viewer</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -43,26 +43,21 @@
     <div class="container">
       <div class="row">
         <div class="eight columns">
-          <form action="{{ url_for('whereami') }}" method="get">
-              <label for="address-text">Enter an address or place name</label>
-              <input type="text" class="u-full-width" name="address-text" id="your-name">
-              <div>
-                <select name="address-dropdown" id="pre-selected-addresses">
-                  <option disabled selected value> -- select an option -- </option>
-                  <option value="Meyerson Hall, University of Pennsylvania">Meyerson Hall, University of Pennsylvania</option>
-                  <option value="Temple of Heaven, Beijing, China">Temple of Heaven, Beijing, China</option>
-                  <option value="Shenandoah National Park">Shenandoah National Park</option>
-                  <option value="Shenandoah National Park">Shenandoah National Park</option>
-                </select>
-              </div>
-            <input type="submit" value="Submit" class="button-primary">
-          </form>
+          {% include 'userinput.html' %}
         </div>
+
         <div class="four columns">
-            <p>This is a demo of how to build a Google Maps-like HTML application<p>
+            <p>This is a demo of how to build a form with several elements. The Submit button is hookedup to an endpoint that will print the literal key/value pairs for the form item name and it's user-supplied value.<p>
+            <p>Some use cases:
+            <ul>
+                <li>Take user input and insert into a table</li>
+                <li>Check input data against known answers in a database or from another source</li>
+            </ul>
+            </p>
         </div>
       </div>
     </div>
+
   </div>
 
   <!-- End Document

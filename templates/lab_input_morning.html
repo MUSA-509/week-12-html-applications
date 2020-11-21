@@ -28,64 +28,42 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
 
-  <!-- Mapbox GL JS Library & CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
-<style>
-    body { margin: 0; padding: 0; }
-    html, body {
-          height: 100%;
-    }
-    .full-height {
-          height: 100%;
-    }
-    .section, .row {
-      height: 100%;
-    }
-    #map { position: relative; width: 100%; height: 100%;}
-    #menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: #fff;
-        padding: 10px;
-        font-family: 'Open Sans', sans-serif;
-    }
-</style>
 </head>
 
 <body>
-  <div class="section full-height">
-    <div class="row">
-      <div class="three columns full-height" style="border-right: 1px solid black; padding: 12px; overflow-y: scroll;">
-          <h2>Here's your place on a map</h2>
-        <p>WhereAmI is a Flask App to demo for the following workflow:</p>
-        <ol>
-            <li>User data entered in a form</li>
-            <li>Form data submitted to API backend</li>
-            <li>API internally uses Mapbox Geocoding API to find lng/lat</li>
-            <li>Location is rendered in on map</li>
-        </ol>
-        <hr>
-        <p>You entered: <b>{{ address }}</b>. This address is at: ({{ lng }}, {{ lat }})</p>.
-        <hr>
-          <h3>Try another one!</h3>
-          <form action="#FillThisInWithTheCorrectEndpointAndFunction" method="get">
-            <div>
-              <label for="address-text">Enter an address or place name</label>
-              <input type="text" class="u-full-width" name="address-text" id="your-name">
-            </div>
-            <input type="submit" value="Submit" class="button-primary">
-            <a href="{{ url_for('index') }}" class="button">Back to home</a>
-          </form>
-      </div>
-      <div class="nine columns u-max-full-width full-height">
-        <div id="map"></div>
+
+  <div class="section hero" style="margin-top: 40px">
+    <div class="container">
+      <div class="row">
+        <h1>Show a place on a map!</h1>
       </div>
     </div>
   </div>
-  {{ html_map | safe }}
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="eight columns">
+          <form action="{{ url_for('whereami') }}" method="get">
+              <label for="address-text">Enter an address or place name</label>
+              <input type="text" class="u-full-width" name="address-text" id="your-name">
+              <div>
+                <label for="address-dropdown">Or... select one of these addresses</label>
+                <select name="address-dropdown" id="pre-selected-addresses">
+                      <option disabled selected value> -- select an option -- </option>
+                  <option value="Meyerson Hall, University of Pennsylvania">Meyerson Hall, University of Pennsylvania</option>
+                  <option value="Temple of Heaven, Beijing, China">Temple of Heaven, Beijing, China</option>
+                  <option value="Hasankeyf, Turkey">Hasankeyf, Turkey</option>
+                </select>
+              </div>
+            <input type="submit" value="Submit" class="button-primary">
+          </form>
+        </div>
+        <div class="four columns">
+            <p>This is a demo of how to build a Google Maps-like HTML application<p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

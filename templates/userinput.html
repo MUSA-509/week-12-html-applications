@@ -1,0 +1,22 @@
+<form action="{{ url_for('whereami') }}" method="get">
+  <div>
+    <label for="address-text">Enter an address or place name</label>
+    <input type="text" class="u-full-width" name="address-text" id="your-name">
+      <div>
+        <label for="pre-selected-addresses">Or... select one of the following</label>
+        <select name="address-dropdown" id="pre-selected-addresses">
+          <option value="Meyerson Hall, University of Pennsylvania">Meyerson Hall, University of Pennsylvania</option>
+          <option value="Irkutsk, Russia">Irkutsk, Russia</option>
+          <option value="Utqiagvik, Alaska">Utqiagvik, Alaska</option>
+          <option value="Giant's Causeway, Northern Ireland">Giant's Causeway, Northern Ireland</option>
+          <option value="Temple of Heaven, Beijing, China">Temple of Heaven, Beijing, China</option>
+          <option value="Hasankeyf, Turkey">Hasankeyf, Turkey</option>
+          <option value="1600 Pennsylvania Avenue NW, Washington DC">1600 Pennsylvania Avenue NW, Washington DC</option>
+        </select>
+      </div>
+    </div>
+    <input type="submit" value="Submit" class="button-primary">
+    {% if request.endpoint == 'whereami' %}
+    <a href="{{ url_for('index') }}" class="button">Back to home</a>
+    {% endif %}
+</form>
