@@ -15,6 +15,7 @@
     * [`templates/lab_input.html`](templates/lab_input.html)
     * [`templates/whereami.html`](templates/whereami.html)
     * [`templates/point_map.html`](templates/point_map.html)
+* View working demo here: <http://musa509-whereami.us-east-1.elasticbeanstalk.com>
 
 ## Lecture Outline
 
