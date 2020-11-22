@@ -58,20 +58,19 @@
 <body>
   <div class="section full-height">
     <div class="row">
-      <div class="three columns full-height" style="border-right: 1px solid black; padding: 12px;">
-        <h2>Your results</h2>
+      <div class="three columns full-height" style="border-right: 1px solid black; padding: 12px; overflow-y: scroll;">
+        <h2>Here's your place on a map</h2>
         <p>You entered: <b>{{ address }}</b>. This address is at: ({{ lat }}, {{ lng }}).</p>
         <hr>
         <h3>Try another one!</h3>
         {% include 'userinput.html' %}
-          <h2>Here's your place on a map</h2>
         <hr>
         <p>WhereAmI is a Flask App to demo for the following workflow:</p>
         <ol>
             <li>User data entered in a form</li>
             <li>Form data submitted to API backend</li>
             <li>API internally uses Mapbox Geocoding API to find lng/lat</li>
-            <li>Location is rendered in on map</li>
+            <li>Location is rendered on a map</li>
         </ol>
       </div>
       <div class="nine columns u-max-full-width full-height">
